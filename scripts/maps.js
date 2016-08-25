@@ -6,9 +6,10 @@ if(navigator.geolocation){
       var latitude = position.coords.latitude;
       var longitude = position.coords.longitude;
       var latlng = new google.maps.LatLng( latitude, longitude);
+      //map表示オプション
       var opts = {
         zoom: 18,
-        center: latlng,
+        center: latlng, //現在地geolocationAPIより
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         draggable: false,  // mapのドラッグ無効化オプション
         disableDoubleClickZoom: true,  //ダブルクリック時のズーム無効化
@@ -39,3 +40,16 @@ if(navigator.geolocation){
 } else {
   window.alert("本ブラウザではgeolocationが使えません.");
 }
+
+// ポップアップを消す
+(function fixInfoWindow() {
+    var set = google.maps.InfoWindow.prototype.set;
+    google.maps.InfoWindow.prototype.set = function(key, val) {
+        if (key === "map") {
+            if (! this.get("noSupress")) {
+                return;
+            }
+        }
+        set.apply(this, arguments);
+    }
+})();
