@@ -1,4 +1,4 @@
-function showMap(){
+window.onload = function showMap(){
   if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(
       // 位置情報取得成功時
