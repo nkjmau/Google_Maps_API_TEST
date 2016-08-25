@@ -15,6 +15,7 @@ if(navigator.geolocation){
         mapTypeControl: false, //航空写真or地図の選択ボックス非表示
         streetViewControl: false,  //streetViewの無効化
         zoomControl: false
+        scrollwheel: false  //スクロールによるズーム無効化
       };
       var map = new google.maps.Map(document.getElementById("map_canvas"), opts);
     },
