@@ -18,6 +18,20 @@ if(navigator.geolocation){
         scrollwheel: false  //スクロールによるズーム無効化
       };
       var map = new google.maps.Map(document.getElementById("map_canvas"), opts);
+
+      //情報ポップアップを非表示化
+      var simpleMapStyle;
+      //POIを非表示にするマップタイプを定義
+      simpleMapStyle = new google.maps.StyledMapType([
+      	{
+      		featureType: "poi",
+      		elementType: "labels",
+      		stylers: [{ visibility: "off" }]
+      	}
+      ], { name: "Simple Map" });
+      //マップタイプを追加して設定
+      map.mapTypes.set("simple_map", simpleMapStyle);
+      map.setMapTypeId("simple_map");
     },
     // 位置情報取得失敗時
     function(error){
