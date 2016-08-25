@@ -42,7 +42,7 @@ if(navigator.geolocation){
 }
 
 // ポップアップを消す
-(function fixInfoWindow() {
+window.addEventListener('click' , function() {
     var set = google.maps.InfoWindow.prototype.set;
     google.maps.InfoWindow.prototype.set = function(key, val) {
         if (key === "map") {
@@ -52,4 +52,4 @@ if(navigator.geolocation){
         }
         set.apply(this, arguments);
     }
-})();
+});
