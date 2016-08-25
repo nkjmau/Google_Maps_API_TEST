@@ -11,7 +11,7 @@ if(navigator.geolocation){
         center: latlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         draggable: false,  // mapのドラッグ無効化オプション
-        disableDoubleClickZoom: true,  //ダブルクルック時のズーム無効化
+        disableDoubleClickZoom: true,  //ダブルクリック時のズーム無効化
         mapTypeControl: false, //航空写真or地図の選択ボックス非表示
         streetViewControl: false,  //streetViewの無効化
         zoomControl: false,
