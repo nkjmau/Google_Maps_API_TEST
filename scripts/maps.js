@@ -7,7 +7,7 @@ if(navigator.geolocation){
       var longitude = position.coords.longitude;
       var latlng = new google.maps.LatLng( latitude, longitude);
       var opts = {
-        zoom: 15,
+        zoom: 18,
         center: latlng,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         draggable: false,  // mapのドラッグ無効化オプション
