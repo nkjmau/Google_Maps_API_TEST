@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 div#map_canvas {
   width: 600px;
   height: 800px;
