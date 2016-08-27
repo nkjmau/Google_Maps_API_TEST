@@ -17,6 +17,7 @@ window.onload = function(){
       function(position){
         // GoogleMapの表示
         googleMapOpts.center = new google.maps.LatLng( position.coords.latitude, position.coords.longitude);
+console.log(googleMapOpts);
         var map = new google.maps.Map(document.getElementById("map_canvas"), googleMapOpts);
       },
       // 位置情報取得失敗時
@@ -46,9 +47,10 @@ function showMap() {
     function (position){
       // GoogleMapの表示
       googleMapOpts.center = new google.maps.LatLng( position.coords.latitude, position.coords.longitude);
+console.log(googleMapOpts);
       var map = new google.maps.Map(document.getElementById("map_canvas"), googleMapOpts);
     }
-  )
+  );
 }
 
 // ポップアップを消す
