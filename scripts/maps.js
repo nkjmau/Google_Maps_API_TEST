@@ -1,3 +1,5 @@
+var googleMapOpts;
+
 window.onload = function(){
   if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(
@@ -6,7 +8,7 @@ window.onload = function(){
         // GoogleMapの表示
         var latlng = new google.maps.LatLng( position.coords.latitude, position.coords.longitude);
         //map表示オプション
-        var opts = {
+        googleMapOpts = {
           zoom: 18,
           center: latlng, //現在地geolocationAPIより
           mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -17,7 +19,7 @@ window.onload = function(){
           zoomControl: false,
           scrollwheel: false  //スクロールによるズーム無効化
         };
-        var map = new google.maps.Map(document.getElementById("map_canvas"), opts);
+        var map = new google.maps.Map(document.getElementById("map_canvas"), googleMapOpts);
       },
       // 位置情報取得失敗時
       function(error){
@@ -47,18 +49,8 @@ function showMap() {
       // GoogleMapの表示
       var latlng = new google.maps.LatLng( position.coords.latitude, position.coords.longitude);
       //map表示オプション
-      var opts = {
-        zoom: 18,
-        center: latlng, //現在地geolocationAPIより
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        draggable: false,  // mapのドラッグ無効化オプション
-        disableDoubleClickZoom: true,  //ダブルクリック時のズーム無効化
-        mapTypeControl: false, //航空写真or地図の選択ボックス非表示
-        streetViewControl: false,  //streetViewの無効化
-        zoomControl: false,
-        scrollwheel: false  //スクロールによるズーム無効化
-      };
-      var map = new google.maps.Map(document.getElementById("map_canvas"), opts);
+      googleMapOpts.center = latlng;
+      var map = new google.maps.Map(document.getElementById("map_canvas"), googleMapOpts);
     }
   );
 }
