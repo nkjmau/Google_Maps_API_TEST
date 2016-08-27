@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"/>
     <title></title>
-    <link rel="stylesheet" href="stylesheets/maps.css">
+    <link rel="stylesheet" href="stylesheets/maps.css"/>
     <script type="text/javascript"
      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9jK-aSaf10cwOOmishzqe5jTniKNGFnM&sensor=false">
     </script>
     <script type="text/javascript" src="scripts/maps.js"></script>
+    <script type="text/javascript" src="scripts/parameters.js"></script>
   </head>
   <body>
-    <form name="geolocationButton">
-      <input type="button" name="geolocation" value="click!" onclick="showMap()">
+    <form>
+      <input type="button" value="click!" onclick="showMap()"/>
+    </form>
+    <p>LVEL : <span id="level"></span></P>
+    <form>
+      <input type="button" value="Level-UP" onclick="levelUp()"/>
+    </form>
+    <p>Resistance : <span id="resistance"></span></p>
+    <p>HP : <span id="HP"></span></P>
+    <form>
+      <input type="button" value="HP-UP" onclick="HPchange(1)"/>
+      <input type="button" value="HP-DOWN" onclick="HPchange(2)"/>
     </form>
     <div id="map_canvas"></div>
   </body>
