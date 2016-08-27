@@ -1,6 +1,6 @@
 var googleMapOpts = {
   zoom: 18,
-  center: , //現在地geolocationAPIより
+  center: undefined, //現在地geolocationAPIより
   mapTypeId: google.maps.MapTypeId.ROADMAP,
   draggable: false,  // mapのドラッグ無効化オプション
   disableDoubleClickZoom: true,  //ダブルクリック時のズーム無効化
@@ -48,7 +48,7 @@ function showMap() {
       googleMapOpts.center = new google.maps.LatLng( position.coords.latitude, position.coords.longitude);
       var map = new google.maps.Map(document.getElementById("map_canvas"), googleMapOpts);
     }
-  );
+  )
 }
 
 // ポップアップを消す
