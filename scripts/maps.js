@@ -10,7 +10,7 @@ var googleMapOpts = {
   scrollwheel: false  //スクロールによるズーム無効化
 };
 
-window.onload = function () {
+$(function () {
   if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(
       // 位置情報取得成功時
@@ -39,7 +39,7 @@ window.onload = function () {
   } else {
     window.alert("本ブラウザではgeolocationが使えません.");
   }
-}
+});
 
 function showMap() {
   navigator.geolocation.getCurrentPosition(

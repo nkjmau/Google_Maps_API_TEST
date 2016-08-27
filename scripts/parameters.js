@@ -2,14 +2,14 @@ var level = 1;
 var resistance = 2;
 var hitPoint = 10000;
 
-window.onload = function () {
+$(function () {
   var out = document.getElementById("level");
   out.innerHTML = level;
   out = document.getElementById("resistance");
   out.innerHTML = resistance;
   out = document.getElementById("HP");
   out.innerHTML = hitPoint;
-}
+};
 
 function levelUp(){
   level++;
