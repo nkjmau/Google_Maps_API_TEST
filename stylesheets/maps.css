@@ -6,3 +6,8 @@ div#map_canvas {
   width: 600px;
   height: 800px;
 }
+
+input {
+  width: 150px;
+  height: 80px;
+}
