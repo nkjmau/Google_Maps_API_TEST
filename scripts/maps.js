@@ -10,15 +10,25 @@ var googleMapOpts = {
   scrollwheel: false  //スクロールによるズーム無効化
 };
 
+var geolocationID;
 
-function showMap() {
-  navigator.geolocation.getCurrentPosition(
-    function (position){
-      // GoogleMapの表示
+// ハンドラ関数watchPosition()
+if (navigator.geolocation) {
+  // 現在の位置情報を取得
+  geolocationID = navigator.geolocation.watchPosition(
+    // 位置情報の取得を成功した場合
+    function (position) {
       googleMapOpts.center = new google.maps.LatLng( position.coords.latitude, position.coords.longitude);
       var map = new google.maps.Map(document.getElementById("map_canvas"), googleMapOpts);
-    }
+    },
+    null,
+    { enableHighAccuracy: true }
   );
+} else {
+  window.alert("本ブラウザではGeolocationが使えません");
+}
+function clearWatchPosition() {
+  navigator.geolocation.clearWatch(geolocationID);
 }
 
 // ポップアップを消す
