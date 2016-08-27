@@ -1,3 +1,4 @@
+// maps.js & parameters.js
 window.onload = function () {
   if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(
