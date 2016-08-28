@@ -18,7 +18,13 @@ if (navigator.geolocation) {
   geolocationID = navigator.geolocation.watchPosition(
     // 位置情報の取得を成功した場合
     function (position) {
-      googleMapOpts.center = new google.maps.LatLng( position.coords.latitude, position.coords.longitude);
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+      var out = document.getElementById("latitude");
+      out.innerHTML = latitude;
+      out = document.getElementById("longitude");
+      out.innerHTML = longitude;
+      googleMapOpts.center = new google.maps.LatLng( latitude, longitude);
       var map = new google.maps.Map(document.getElementById("map_canvas"), googleMapOpts);
     },
     null,
