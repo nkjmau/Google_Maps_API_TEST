@@ -4,7 +4,7 @@ html, body, div{
   border: 0;
 }
 body {
-  background: white;
+  background: whited;
 }
 #map_canvas{
   width: 100%;
@@ -14,16 +14,16 @@ body {
   padding-top: 30vh;
 }
 #safety-circle{
-  width: 70px;
-  height: 70px;
+  width: 90px;
+  height: 90px;
   background: rgba(21,132,68,0.6);
-  border-radius: 50px;
+  border-radius: 45px;
 }
 #danger-circle{
-  width: 70px;
-  height: 70px;
+  width: 90px;
+  height: 90px;
   background: rgba(132,30,24,0.6);
-  border-radius: 50px;
+  border-radius: 45px;
 }
 #stats{
   background: white;
@@ -53,7 +53,7 @@ body {
   margin: 5% auto;
 }
 .description-item .text{
-  font-size: 40px;
+  font-size: 60px;
   margin: 8px 0 0 20px;
 }
 .description-safety{
