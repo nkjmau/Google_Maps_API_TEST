@@ -10,8 +10,11 @@ body {
   width: 100%;
   height: 80vh;
 }
-#description{
-  padding-top: 30vh;
+#titleLog {
+  padding-top: 5vh;
+  padding-bottom: 10vh;
+  height: 20vh;
+  text-align: center;
 }
 #safety-circle{
   width: 90px;
