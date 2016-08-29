@@ -11,7 +11,7 @@ body {
   height: 80vh;
 }
 #description{
-  margin-top: 30vh;
+  padding-top: 30vh;
 }
 #safety-circle{
   width: 70px;
