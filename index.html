@@ -4,6 +4,7 @@
     <meta charset="utf-8"/>
     <title></title>
     <link rel="stylesheet" href="stylesheets/maps.css"/>
+    <link rel="stylesheet" href="stylesheets/index.css"/>
     <script type="text/javascript"
      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9jK-aSaf10cwOOmishzqe5jTniKNGFnM&sensor=false">
     </script>
@@ -13,7 +14,6 @@
   <body>
     <p>lantitude : <span id="latitude"></span></P>
     <p>longitude : <span id="longitude"></span></P>
-    <p>LVEL : <span id="level"></span></P>
     <form>
       <input type="button" value="Level-UP" onclick="levelUp()"/>
     </form>
@@ -24,5 +24,22 @@
       <input type="button" value="HP-DOWN" onclick="HPchange(2)"/>
     </form>
     <div id="map_canvas"></div>
+    <!-- パラメータ部 -->
+    <div id="stats">
+      <div class="box">
+        <div class="circle">
+          <div id="lvl" class="text"></div>
+        </div>
+      </div>
+      <div class="box">
+        <div id="hp" class="hp-bar">
+          <div class="hp-progress"></div>
+          <p id="health" class="text">HP</p>
+        </div>
+      </div>
+      <div class="box">
+        <div id="dist" class="text"></div>
+      </div>
+    </div>
   </body>
 </html>

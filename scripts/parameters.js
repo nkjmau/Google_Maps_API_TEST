@@ -3,7 +3,7 @@ var resistance = 2;
 var hitPoint = 10000;
 
 window.onload = function () {
-  var out = document.getElementById("level");
+  var out = document.getElementById("lvl");
   out.innerHTML = level;
   out = document.getElementById("resistance");
   out.innerHTML = resistance;
@@ -13,7 +13,7 @@ window.onload = function () {
 
 function levelUp(){
   level++;
-  var out = document.getElementById("level");
+  var out = document.getElementById("lvl");
   out.innerHTML = level;
   resistance += 2;
   out = document.getElementById("resistance");
