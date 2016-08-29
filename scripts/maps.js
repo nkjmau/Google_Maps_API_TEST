@@ -13,21 +13,24 @@ var googleMapOpts = {
 var geolocationID;
 function showMap(){
   if (navigator.geolocation) {
-    // 現在の位置情報を取得
-    geolocationID = navigator.geolocation.getCurrentPosition(
-      // 位置情報の取得を成功した場合
-      function (position) {
-        var latitude = position.coords.latitude;
-        var longitude = position.coords.longitude;
-        googleMapOpts.center = new google.maps.LatLng( latitude, longitude);
-        var map = new google.maps.Map(document.getElementById("map_canvas"), googleMapOpts);
-      },
-      null,
-      { enableHighAccuracy: true }
-    );
+    setInterval( 'updateMap()', 1000);
   } else {
     window.alert("本ブラウザではGeolocationが使えません");
   }
+}
+function updateMap(){
+  // 現在の位置情報を取得
+  geolocationID = navigator.geolocation.getCurrentPosition(
+    // 位置情報の取得を成功した場合
+    function (position) {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
+      googleMapOpts.center = new google.maps.LatLng( latitude, longitude);
+      var map = new google.maps.Map(document.getElementById("map_canvas"), googleMapOpts);
+    },
+    null,
+    { enableHighAccuracy: true }
+  );
 }
 function clearWatchPosition() {
   navigator.geolocation.clearWatch(geolocationID);
