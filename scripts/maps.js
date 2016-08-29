@@ -20,10 +20,6 @@ if (navigator.geolocation) {
     function (position) {
       var latitude = position.coords.latitude;
       var longitude = position.coords.longitude;
-      var out = document.getElementById("latitude");
-      out.innerHTML = latitude;
-      out = document.getElementById("longitude");
-      out.innerHTML = longitude;
       googleMapOpts.center = new google.maps.LatLng( latitude, longitude);
       var map = new google.maps.Map(document.getElementById("map_canvas"), googleMapOpts);
     },
