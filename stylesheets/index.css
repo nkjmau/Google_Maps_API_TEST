@@ -13,8 +13,10 @@ body {
 #titleLog {
   padding-top: 5vh;
   padding-bottom: 10vh;
-  height: 20vh;
   text-align: center;
+}
+#titleLog img{
+  height: 25vh;
 }
 #safety-circle{
   width: 90px;
