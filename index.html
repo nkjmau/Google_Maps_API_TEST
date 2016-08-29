@@ -9,13 +9,20 @@
     </script>
     <script type="text/javascript" src="scripts/maps.js"></script>
     <script type="text/javascript" src="scripts/parameters.js"></script>
-    <script type="text/javascript" src="scripts/titlePage.js"></script>
   </head>
   <body onclick="showMap()">
     <!-- GoogleMap部 -->
     <div id="map_canvas">
-      安全ゾーン：体力が回復
-      <br>危険ゾーン：体力が減少
+      <div id="description">
+        <div class="description-item">
+          <div id="safety-circle" class="description-safety"></div>
+          <div class="text" class="description-safety">安全ゾーン：体力が回復</div>
+        </div>
+        <div class="description-item">
+          <div id="danger-circle" class="description-danger"></div>
+          <div class="text" class="description-danger">危険ゾーン：体力が減少</div>
+        </div>
+      </div>
     </div>
     <!-- パラメータ部 -->
     <div id="stats">
