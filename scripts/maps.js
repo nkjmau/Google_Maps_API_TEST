@@ -11,6 +11,7 @@ var googleMapOpts = {
 };
 
 var geolocationID;
+var count = 0;  //debug用
 function showMap(){
   if (navigator.geolocation) {
     setInterval( 'updateMap()', 1000);
@@ -19,12 +20,18 @@ function showMap(){
   }
 }
 function updateMap(){
+  count++;
   // 現在の位置情報を取得
   geolocationID = navigator.geolocation.getCurrentPosition(
     // 位置情報の取得を成功した場合
     function (position) {
       var latitude = position.coords.latitude;
       var longitude = position.coords.longitude;
+      if(count%2 == 1){
+        googleMapOpts.mapTypeId = google.Maps.MapTypeId.SATELLITE;
+      }else{
+        googleMapOpts.mapTypeId = google.Maps.MapTypeId.ROADMAP;
+      }
       googleMapOpts.center = new google.maps.LatLng( latitude, longitude);
       var map = new google.maps.Map(document.getElementById("map_canvas"), googleMapOpts);
     },
