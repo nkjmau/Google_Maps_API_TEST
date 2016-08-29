@@ -11,7 +11,6 @@ var googleMapOpts = {
 };
 
 var geolocationID;
-var count = 0;  //debug用
 function showMap(){
   if (navigator.geolocation) {
     setInterval( 'updateMap()', 1000);
@@ -27,11 +26,6 @@ function updateMap(){
     function (position) {
       var latitude = position.coords.latitude;
       var longitude = position.coords.longitude;
-      if(count%2 == 1){
-        googleMapOpts.mapTypeId = google.Maps.MapTypeId.SATELLITE;
-      }else{
-        googleMapOpts.mapTypeId = google.Maps.MapTypeId.ROADMAP;
-      }
       googleMapOpts.center = new google.maps.LatLng( latitude, longitude);
       var map = new google.maps.Map(document.getElementById("map_canvas"), googleMapOpts);
     },
