@@ -12,10 +12,9 @@ var googleMapOpts = {
 
 var geolocationID;
 function showMap(){
-  // ハンドラ関数watchPosition()
   if (navigator.geolocation) {
     // 現在の位置情報を取得
-    geolocationID = navigator.geolocation.watchPosition(
+    geolocationID = navigator.geolocation.getCurrentPosition(
       // 位置情報の取得を成功した場合
       function (position) {
         var latitude = position.coords.latitude;
