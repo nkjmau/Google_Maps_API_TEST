@@ -12,19 +12,26 @@ var googleMapOpts = {
 
 var map;
 var latitude, longitude;
+window.addEventListener(`load`, function{
+  if (navigator.geolocation){
+    // 位置情報を取得
+    // TODO: 取得したら(一定時間ごとに？)送信
+    navigator.geolocation.watchPosition(function(pos){
+      console.dir(pos.coords);
+      latitude = pos.coords.latitude;
+      longitude = pos.coords.longitude;
+    });
+  }
+  else {
+    alert('cannot get geolocation');
+    return;
+  }
+});
+
 window.addEventListener('click', function() {
   showMap();
   window.removeEventListener("click", arguments.callee);
   setInterval(function() {
-    navigator.geolocation.getCurrentPosition(
-      // 位置情報の取得を成功した場合
-      function (position) {
-        latitude = position.coords.latitude;
-        longitude = position.coords.longitude;
-      },
-      null,
-      { enableHighAccuracy: true }
-    );
     updateMap();
   }, 3000);
 });
@@ -43,7 +50,7 @@ function showMap(){
   map = new google.maps.Map(document.getElementById("map_canvas"), googleMapOpts);
 }
 function updateMap(){
-  map.panTo(new google.maps.LatLng( latitude, longitude));
+  map.setCenter(new google.maps.LatLng( latitude, longitude));
 }
 
 // ポップアップを消す
