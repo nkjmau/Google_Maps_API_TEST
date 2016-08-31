@@ -30,10 +30,10 @@ window.addEventListener('load', function(){
 
 window.addEventListener('click', function() {
   showMap();
-  window.removeEventListener("click", arguments.callee);
   setInterval(function() {
     updateMap();
   }, 3000);
+  window.removeEventListener('click', arguments.callee);
 });
 function showMap(){
   var googleMapOpts = {
