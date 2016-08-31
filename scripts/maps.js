@@ -10,30 +10,40 @@ var googleMapOpts = {
   scrollwheel: false  //スクロールによるズーム無効化
 };
 
-var geolocationID;
+var map;
+var latitude, longitude;
+window.addEventListener('click', function() {
+  showMap();
+  window.removeEventListener("click", arguments.callee);
+  setInterval(function() {
+    navigator.geolocation.getCurrentPosition(
+      // 位置情報の取得を成功した場合
+      function (position) {
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+      },
+      null,
+      { enableHighAccuracy: true }
+    );
+    updateMap();
+  }, 3000);
+});
 function showMap(){
-  if (navigator.geolocation) {
-    setInterval( 'updateMap()', 1000);
-  } else {
-    window.alert("本ブラウザではGeolocationが使えません");
-  }
+  var googleMapOpts = {
+    zoom: 18,
+    center: new google.maps.LatLng( latitude, longitude), //現在地geolocationAPIより
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    draggable: false,  // mapのドラッグ無効化オプション
+    disableDoubleClickZoom: true,  //ダブルクリック時のズーム無効化
+    mapTypeControl: false, //航空写真or地図の選択ボックス非表示
+    streetViewControl: false,  //streetViewの無効化
+    zoomControl: false,
+    scrollwheel: false  //スクロールによるズーム無効化
+  };
+  map = new google.maps.Map(document.getElementById("map_canvas"), googleMapOpts);
 }
 function updateMap(){
-  // 現在の位置情報を取得
-  geolocationID = navigator.geolocation.getCurrentPosition(
-    // 位置情報の取得を成功した場合
-    function (position) {
-      var latitude = position.coords.latitude;
-      var longitude = position.coords.longitude;
-      googleMapOpts.center = new google.maps.LatLng( latitude, longitude);
-      var map = new google.maps.Map(document.getElementById("map_canvas"), googleMapOpts);
-    },
-    null,
-    { enableHighAccuracy: true }
-  );
-}
-function clearWatchPosition() {
-  navigator.geolocation.clearWatch(geolocationID);
+  map.panTo(new google.maps.LatLng( latitude, longitude));
 }
 
 // ポップアップを消す
