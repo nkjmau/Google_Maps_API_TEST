@@ -3,12 +3,12 @@ var resistance = 2;
 var hitPoint = 1000;
 var dist = 0;
 
-window.onload = function () {
+window.addEventListener('load', function () {
   var out = document.getElementById("lvl");
   out.innerHTML = level;
   out = document.getElementById("dist");
   out.innerHTML = parseFloat(dist).toFixed(1) + "km";
-}
+});
 
 function levelUp(){
   level++;
