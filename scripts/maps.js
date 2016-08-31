@@ -12,7 +12,7 @@ var googleMapOpts = {
 
 var map;
 var latitude, longitude;
-window.addEventListener('load', function{
+window.addEventListener('load', function(){
   if (navigator.geolocation){
     // 位置情報を取得
     // TODO: 取得したら(一定時間ごとに？)送信
