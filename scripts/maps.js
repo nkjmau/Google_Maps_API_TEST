@@ -31,6 +31,7 @@ window.addEventListener('load', function(){
 window.addEventListener('click', function() {
   showMap();
   setInterval(function() {
+    console.log(latitude, longitude);
     updateMap();
   }, 3000);
   window.removeEventListener('click', arguments.callee);
